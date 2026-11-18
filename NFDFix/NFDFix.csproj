@@ -1,0 +1,129 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net11.0-windows10.0.26100.0</TargetFramework>
+    <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
+    <RootNamespace>NFDFix</RootNamespace>
+    <!-- Keep in sync with Identity Version in Package.appxmanifest and assemblyIdentity in app.manifest. -->
+    <Version>1.0.0</Version>
+    <!-- Strings/<language>/Resources.resw; this one is used when Windows uses a language the app has no strings for. -->
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+    <ApplicationIcon Condition="Exists('Assets\AppIcon.ico')">Assets\AppIcon.ico</ApplicationIcon>
+    <Platforms>x64;ARM64</Platforms>
+    <RuntimeIdentifier Condition="'$(RuntimeIdentifier)' == ''">win-$([System.Runtime.InteropServices.RuntimeInformation]::ProcessArchitecture.ToString().ToLowerInvariant())</RuntimeIdentifier>
+    <PublishProfile Condition="Exists('Properties\PublishProfiles\win-$(Platform).pubxml')">win-$(Platform).pubxml</PublishProfile>
+    <UseWinUI>true</UseWinUI>
+    <WinUISDKReferences>false</WinUISDKReferences>
+    <EnableMsixTooling>true</EnableMsixTooling>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <!-- Required by [LibraryImport]. -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48_altform-lightunplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48_altform-unplated.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\AppIcon.ico" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+    <Content Include="Assets\Fonts\PretendardVariable.ttf" />
+    <Content Include="Assets\Fonts\Pretendard-OFL.txt" />
+    <!-- Repository-level files, kept at the repository root. -->
+    <Content Include="..\THIRD-PARTY-NOTICES.md" Link="THIRD-PARTY-NOTICES.md" />
+    <Content Include="..\LICENSE" Link="LICENSE" />
+  </ItemGroup>
+
+  <!--
+    Unpackaged apps load ms-appx:/// asset paths from the exe folder, so the files the
+    app uses at run time must be copied to the build and publish output. The other
+    logos are only for MSIX packaging and stay out of the output.
+  -->
+  <ItemGroup>
+    <Content Update="Assets\AppIcon.ico;Assets\Square44x44Logo.targetsize-256_altform-unplated.png;Assets\Fonts\PretendardVariable.ttf;Assets\Fonts\Pretendard-OFL.txt;..\THIRD-PARTY-NOTICES.md;..\LICENSE"
+             CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="PreserveNewest" />
+  </ItemGroup>
+
+  <!--
+    WinUI depends on WebView2 and Windows App SDK Foundation ships the background task
+    host, but this app uses neither, so their native DLLs are not copied to the output.
+  -->
+  <Target Name="RemoveUnusedNativeDlls" AfterTargets="ResolvePackageAssets">
+    <PropertyGroup>
+      <_UnusedNativeDlls>;WebView2Loader;Microsoft.Web.WebView2.Core;Microsoft.Windows.ApplicationModel.Background.UniversalBGTask;</_UnusedNativeDlls>
+    </PropertyGroup>
+    <ItemGroup>
+      <RuntimeCopyLocalItems Remove="@(RuntimeCopyLocalItems)" Condition="$(_UnusedNativeDlls.Contains(';%(Filename);'))" />
+      <NativeCopyLocalItems Remove="@(NativeCopyLocalItems)" Condition="$(_UnusedNativeDlls.Contains(';%(Filename);'))" />
+      <!-- The WebView2 package adds its Core.dll here directly instead of as a package asset. -->
+      <ReferenceCopyLocalPaths Remove="@(ReferenceCopyLocalPaths)" Condition="$(_UnusedNativeDlls.Contains(';%(Filename);'))" />
+    </ItemGroup>
+  </Target>
+
+  <ItemGroup>
+    <Manifest Include="$(ApplicationManifest)" />
+  </ItemGroup>
+
+  <!--
+    Defining the "Msix" ProjectCapability here allows the Single-project MSIX Packaging
+    Tools extension to be activated for this project even if the Windows App SDK Nuget
+    package has not yet been restored.
+  -->
+  <ItemGroup Condition="'$(DisableMsixProjectCapabilityAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <ProjectCapability Include="Msix" />
+  </ItemGroup>
+
+  <!--
+    Microsoft.Windows.SDK.BuildTools.WinApp adds first-class support for
+    `dotnet run` on packaged WinUI apps: it hooks the .NET CLI Run target to
+    register a debug identity via the winapp CLI and launch the app with
+    package identity (AUMID).
+    Set <EnableWinAppRunSupport>false</EnableWinAppRunSupport> in a
+    <PropertyGroup> above to opt out.
+  -->
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools" Version="10.0.28000.2957" />
+    <!--
+      Only the Windows App SDK components the app uses. The Microsoft.WindowsAppSDK
+      metapackage also pulls in AI/ML (onnxruntime, DirectML), Search and Widgets,
+      which add ~45 MB of unused DLLs to the output.
+    -->
+    <PackageReference Include="Microsoft.WindowsAppSDK.WinUI" Version="2.7.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.Foundation" Version="2.7.0" />
+    <PackageReference Include="Microsoft.WindowsAppSDK.Runtime" Version="2.7.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.2" />
+    <PackageReference Include="Microsoft.Windows.SDK.BuildTools.WinApp" Version="0.8.0" />
+  </ItemGroup>
+
+  <!--
+    Defining the "HasPackageAndPublishMenuAddedByProject" property here allows the Solution
+    Explorer "Package and Publish" context menu entry to be enabled for this project even if
+    the Windows App SDK Nuget package has not yet been restored.
+  -->
+  <PropertyGroup Condition="'$(DisableHasPackageAndPublishMenuAddedByProject)'!='true' and '$(EnableMsixTooling)'=='true'">
+    <HasPackageAndPublishMenu>true</HasPackageAndPublishMenu>
+  </PropertyGroup>
+
+  <!-- Publish Properties -->
+  <PropertyGroup>
+    <!-- Native AOT always trims, so this is on in every configuration. -->
+    <PublishTrimmed>True</PublishTrimmed>
+    <WindowsPackageType>None</WindowsPackageType>
+    <PublishAot>True</PublishAot>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+</Project>

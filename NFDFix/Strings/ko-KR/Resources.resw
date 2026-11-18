@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Korean UI strings. Keys with a dot are applied by x:Uid in XAML ("Uid.Property");
+  keys without one are read in code through Localizer.
+  Keep the same keys in every Strings/<language>/Resources.resw.
+-->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Toolbar -->
+  <data name="AddFilesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>파일 추가</value>
+  </data>
+  <data name="AddFilesText.Text" xml:space="preserve">
+    <value>파일 추가</value>
+  </data>
+  <data name="AddFoldersButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>폴더 추가</value>
+  </data>
+  <data name="AddFoldersText.Text" xml:space="preserve">
+    <value>폴더 추가</value>
+  </data>
+  <data name="RemoveButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="RemoveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>선택한 항목을 목록에서 제거</value>
+  </data>
+  <data name="RemoveText.Text" xml:space="preserve">
+    <value>제거</value>
+  </data>
+  <data name="ClearAllButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>모두 지우기</value>
+  </data>
+  <data name="ClearAllText.Text" xml:space="preserve">
+    <value>모두 지우기</value>
+  </data>
+  <data name="RescanButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>다시 검사</value>
+  </data>
+  <data name="RescanButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>다시 검사 (F5)</value>
+  </data>
+  <data name="RescanText.Text" xml:space="preserve">
+    <value>다시 검사</value>
+  </data>
+  <data name="LanguageButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>언어</value>
+  </data>
+  <data name="LanguageButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>언어 · Language</value>
+  </data>
+  <data name="AboutButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="AboutButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>정보</value>
+  </data>
+
+  <!-- Language menu -->
+  <data name="LanguageHeaderText.Text" xml:space="preserve">
+    <value>언어 · Language</value>
+  </data>
+  <data name="LanguageRestartNoteText.Text" xml:space="preserve">
+    <value>앱을 다시 시작하면 적용됩니다</value>
+  </data>
+  <data name="LanguageCurrentName" xml:space="preserve">
+    <value>한국어</value>
+  </data>
+  <data name="LanguageSystem" xml:space="preserve">
+    <value>시스템 기본값</value>
+  </data>
+  <data name="LanguageSystemHint" xml:space="preserve">
+    <value>Windows 설정</value>
+  </data>
+  <data name="LanguageHintKorean" xml:space="preserve">
+    <value>Korean</value>
+  </data>
+  <data name="LanguageHintEnglish" xml:space="preserve">
+    <value>영어</value>
+  </data>
+
+  <!-- Conversion options -->
+  <data name="OptionsHeaderText.Text" xml:space="preserve">
+    <value>변환 옵션</value>
+  </data>
+  <data name="RecursiveTitle.Text" xml:space="preserve">
+    <value>하위 폴더까지 재귀적으로 변환</value>
+  </data>
+  <data name="RecursiveDescription.Text" xml:space="preserve">
+    <value>선택한 폴더 안의 모든 하위 파일과 폴더를 검사합니다</value>
+  </data>
+  <data name="RecursiveToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>하위 폴더까지 재귀적으로 변환</value>
+  </data>
+  <data name="TargetTitle.Text" xml:space="preserve">
+    <value>변환 대상</value>
+  </data>
+  <data name="TargetDescription.Text" xml:space="preserve">
+    <value>이름을 NFC로 바꿀 항목의 종류</value>
+  </data>
+  <data name="TargetCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>변환 대상</value>
+  </data>
+  <data name="TargetFilesAndFolders.Content" xml:space="preserve">
+    <value>파일 및 폴더</value>
+  </data>
+  <data name="TargetFilesOnly.Content" xml:space="preserve">
+    <value>파일만</value>
+  </data>
+  <data name="TargetFoldersOnly.Content" xml:space="preserve">
+    <value>폴더만</value>
+  </data>
+  <data name="HiddenTitle.Text" xml:space="preserve">
+    <value>숨김 및 시스템 항목 포함</value>
+  </data>
+  <data name="HiddenDescription.Text" xml:space="preserve">
+    <value>.git, desktop.ini 같은 항목도 검사합니다</value>
+  </data>
+  <data name="HiddenToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>숨김 및 시스템 항목 포함</value>
+  </data>
+  <data name="ConflictTitle.Text" xml:space="preserve">
+    <value>이름이 겹칠 때</value>
+  </data>
+  <data name="ConflictDescription.Text" xml:space="preserve">
+    <value>같은 폴더에 동일한 NFC 이름이 이미 있는 경우</value>
+  </data>
+  <data name="ConflictCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>이름이 겹칠 때</value>
+  </data>
+  <data name="ConflictSkip.Content" xml:space="preserve">
+    <value>건너뛰기</value>
+  </data>
+  <data name="ConflictAppendNumber.Content" xml:space="preserve">
+    <value>번호 붙이기</value>
+  </data>
+  <data name="ToggleOn" xml:space="preserve">
+    <value>켬</value>
+  </data>
+  <data name="ToggleOff" xml:space="preserve">
+    <value>끔</value>
+  </data>
+  <data name="SummaryRecursive" xml:space="preserve">
+    <value>하위 폴더 포함</value>
+  </data>
+  <data name="SummaryNotRecursive" xml:space="preserve">
+    <value>하위 폴더 제외</value>
+  </data>
+  <data name="SummaryFilesAndFolders" xml:space="preserve">
+    <value>파일 및 폴더</value>
+  </data>
+  <data name="SummaryFilesOnly" xml:space="preserve">
+    <value>파일만</value>
+  </data>
+  <data name="SummaryFoldersOnly" xml:space="preserve">
+    <value>폴더만</value>
+  </data>
+  <data name="SummaryIncludeHidden" xml:space="preserve">
+    <value>숨김 항목 포함</value>
+  </data>
+  <data name="SummaryConflictSkip" xml:space="preserve">
+    <value>겹치면 건너뛰기</value>
+  </data>
+  <data name="SummaryConflictAppendNumber" xml:space="preserve">
+    <value>겹치면 번호 붙이기</value>
+  </data>
+
+  <!-- List -->
+  <data name="SelectAllCheckBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>모두 선택</value>
+  </data>
+  <data name="ColumnOriginal.Text" xml:space="preserve">
+    <value>현재 이름 (NFD)</value>
+  </data>
+  <data name="ColumnConverted.Text" xml:space="preserve">
+    <value>변환 후 이름 (NFC)</value>
+  </data>
+  <data name="ColumnLocation.Text" xml:space="preserve">
+    <value>위치</value>
+  </data>
+  <data name="ColumnStatus.Text" xml:space="preserve">
+    <value>상태</value>
+  </data>
+  <data name="BadgePending.Text" xml:space="preserve">
+    <value>변환 예정</value>
+  </data>
+  <data name="BadgeConflictBorder.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>같은 폴더에 같은 NFC 이름이 이미 있습니다</value>
+  </data>
+  <data name="BadgeConflict.Text" xml:space="preserve">
+    <value>충돌</value>
+  </data>
+  <data name="BadgeDone.Text" xml:space="preserve">
+    <value>완료</value>
+  </data>
+  <data name="BadgeFailed.Text" xml:space="preserve">
+    <value>실패</value>
+  </data>
+
+  <!-- Empty state and drag and drop -->
+  <data name="PickFilesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>파일 선택</value>
+  </data>
+  <data name="PickFilesText.Text" xml:space="preserve">
+    <value>파일 선택</value>
+  </data>
+  <data name="PickFoldersButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>폴더 선택</value>
+  </data>
+  <data name="PickFoldersText.Text" xml:space="preserve">
+    <value>폴더 선택</value>
+  </data>
+  <data name="EmptyTitleNoItems" xml:space="preserve">
+    <value>파일이나 폴더를 여기에 끌어다 놓으세요</value>
+  </data>
+  <data name="EmptyDescriptionNoItems" xml:space="preserve">
+    <value>자모가 분리된 NFD 이름(예: &#x1107;&#x1169;&#x1100;&#x1169;&#x1109;&#x1165;.docx)을 찾아 NFC(보고서.docx)로 바꿉니다</value>
+  </data>
+  <data name="EmptyTitleNothingToConvert" xml:space="preserve">
+    <value>변환할 NFD 이름이 없습니다</value>
+  </data>
+  <data name="EmptyDescriptionNothingToConvert" xml:space="preserve">
+    <value>추가한 항목의 이름이 모두 NFC입니다. 다른 파일이나 폴더를 끌어다 놓을 수 있습니다</value>
+  </data>
+  <data name="DropCaption" xml:space="preserve">
+    <value>추가해서 검사</value>
+  </data>
+
+  <!-- Footer -->
+  <data name="ConvertButton" xml:space="preserve">
+    <value>NFC로 변환</value>
+  </data>
+  <data name="ConvertButtonWithCount" xml:space="preserve">
+    <value>NFC로 변환 ({0})</value>
+  </data>
+  <data name="StatusBusy" xml:space="preserve">
+    <value>작업 중…</value>
+  </data>
+  <data name="StatusNoItems" xml:space="preserve">
+    <value>추가된 항목 없음</value>
+  </data>
+  <data name="StatusItems" xml:space="preserve">
+    <value>항목 {0}개</value>
+  </data>
+  <data name="StatusPending" xml:space="preserve">
+    <value>변환 예정 {0}개</value>
+  </data>
+  <data name="StatusConflicts" xml:space="preserve">
+    <value>충돌 {0}개</value>
+  </data>
+  <data name="StatusFoldersScanned" xml:space="preserve">
+    <value>하위 폴더 {0}개 검사됨</value>
+  </data>
+  <data name="ResultConverted" xml:space="preserve">
+    <value>변환 완료 {0}개</value>
+  </data>
+  <data name="ResultConvertedWithFailures" xml:space="preserve">
+    <value>변환 완료 {0}개, 실패 {1}개</value>
+  </data>
+  <data name="ResultConvertFailed" xml:space="preserve">
+    <value>변환 실패: {0}</value>
+  </data>
+  <data name="ResultScanFailed" xml:space="preserve">
+    <value>검사 실패: {0}</value>
+  </data>
+  <data name="ErrorAlreadyExists" xml:space="preserve">
+    <value>같은 이름의 항목이 이미 있습니다.</value>
+  </data>
+  <data name="ErrorLeftAtTemporaryName" xml:space="preserve">
+    <value>이름 변경을 끝내지 못했습니다: {1} 항목이 지금 "{0}" 이름으로 남아 있으니 직접 원래 이름으로 바꿔 주세요.</value>
+  </data>
+
+  <!-- About dialog -->
+  <data name="AboutDialog.CloseButtonText" xml:space="preserve">
+    <value>닫기</value>
+  </data>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>버전 {0}</value>
+  </data>
+  <data name="AboutDescription.Text" xml:space="preserve">
+    <value>자모가 분리된 NFD 파일·폴더 이름을 찾아 NFC로 바꿔 주는 도구입니다. macOS에서 옮겨 온 파일의 이름이 ㅂㅗㄱㅗㅅㅓ처럼 보일 때 사용하세요.</value>
+  </data>
+  <data name="AboutSourceButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>소스 코드</value>
+  </data>
+  <data name="AboutSourceTitle.Text" xml:space="preserve">
+    <value>소스 코드</value>
+  </data>
+  <data name="AboutLicenseButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>라이선스</value>
+  </data>
+  <data name="AboutLicenseTitle.Text" xml:space="preserve">
+    <value>라이선스</value>
+  </data>
+  <data name="AboutNoticesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>오픈 소스 고지</value>
+  </data>
+  <data name="AboutNoticesTitle.Text" xml:space="preserve">
+    <value>오픈 소스 고지</value>
+  </data>
+  <data name="AboutNoticesDescription.Text" xml:space="preserve">
+    <value>Pretendard, .NET, Windows App SDK 등</value>
+  </data>
+</root>

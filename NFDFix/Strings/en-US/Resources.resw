@@ -1,0 +1,317 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  English UI strings, also the fallback when Windows uses a language the app doesn't support.
+  Keys with a dot are applied by x:Uid in XAML ("Uid.Property");
+  keys without one are read in code through Localizer.
+  Keep the same keys in every Strings/<language>/Resources.resw.
+-->
+<root>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+
+  <!-- Toolbar -->
+  <data name="AddFilesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Add files</value>
+  </data>
+  <data name="AddFilesText.Text" xml:space="preserve">
+    <value>Add files</value>
+  </data>
+  <data name="AddFoldersButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Add folders</value>
+  </data>
+  <data name="AddFoldersText.Text" xml:space="preserve">
+    <value>Add folders</value>
+  </data>
+  <data name="RemoveButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="RemoveButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Remove the selected items from the list</value>
+  </data>
+  <data name="RemoveText.Text" xml:space="preserve">
+    <value>Remove</value>
+  </data>
+  <data name="ClearAllButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Clear all</value>
+  </data>
+  <data name="ClearAllText.Text" xml:space="preserve">
+    <value>Clear all</value>
+  </data>
+  <data name="RescanButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Rescan</value>
+  </data>
+  <data name="RescanButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Rescan (F5)</value>
+  </data>
+  <data name="RescanText.Text" xml:space="preserve">
+    <value>Rescan</value>
+  </data>
+  <data name="LanguageButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="LanguageButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Language · 언어</value>
+  </data>
+  <data name="AboutButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutButton.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>About</value>
+  </data>
+
+  <!-- Language menu -->
+  <data name="LanguageHeaderText.Text" xml:space="preserve">
+    <value>Language · 언어</value>
+  </data>
+  <data name="LanguageRestartNoteText.Text" xml:space="preserve">
+    <value>Takes effect after restarting the app</value>
+  </data>
+  <data name="LanguageCurrentName" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="LanguageSystem" xml:space="preserve">
+    <value>System default</value>
+  </data>
+  <data name="LanguageSystemHint" xml:space="preserve">
+    <value>Windows setting</value>
+  </data>
+  <data name="LanguageHintKorean" xml:space="preserve">
+    <value>Korean</value>
+  </data>
+  <data name="LanguageHintEnglish" xml:space="preserve">
+    <value>영어</value>
+  </data>
+
+  <!-- Conversion options -->
+  <data name="OptionsHeaderText.Text" xml:space="preserve">
+    <value>Conversion options</value>
+  </data>
+  <data name="RecursiveTitle.Text" xml:space="preserve">
+    <value>Include subfolders</value>
+  </data>
+  <data name="RecursiveDescription.Text" xml:space="preserve">
+    <value>Scans every file and folder inside the selected folders</value>
+  </data>
+  <data name="RecursiveToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Include subfolders</value>
+  </data>
+  <data name="TargetTitle.Text" xml:space="preserve">
+    <value>Apply to</value>
+  </data>
+  <data name="TargetDescription.Text" xml:space="preserve">
+    <value>Which kinds of items get NFC names</value>
+  </data>
+  <data name="TargetCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Apply to</value>
+  </data>
+  <data name="TargetFilesAndFolders.Content" xml:space="preserve">
+    <value>Files and folders</value>
+  </data>
+  <data name="TargetFilesOnly.Content" xml:space="preserve">
+    <value>Files only</value>
+  </data>
+  <data name="TargetFoldersOnly.Content" xml:space="preserve">
+    <value>Folders only</value>
+  </data>
+  <data name="HiddenTitle.Text" xml:space="preserve">
+    <value>Include hidden and system items</value>
+  </data>
+  <data name="HiddenDescription.Text" xml:space="preserve">
+    <value>Also scans items such as .git and desktop.ini</value>
+  </data>
+  <data name="HiddenToggle.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Include hidden and system items</value>
+  </data>
+  <data name="ConflictTitle.Text" xml:space="preserve">
+    <value>When names collide</value>
+  </data>
+  <data name="ConflictDescription.Text" xml:space="preserve">
+    <value>When the folder already has an item with the same NFC name</value>
+  </data>
+  <data name="ConflictCombo.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>When names collide</value>
+  </data>
+  <data name="ConflictSkip.Content" xml:space="preserve">
+    <value>Skip</value>
+  </data>
+  <data name="ConflictAppendNumber.Content" xml:space="preserve">
+    <value>Add a number</value>
+  </data>
+  <data name="ToggleOn" xml:space="preserve">
+    <value>On</value>
+  </data>
+  <data name="ToggleOff" xml:space="preserve">
+    <value>Off</value>
+  </data>
+  <data name="SummaryRecursive" xml:space="preserve">
+    <value>With subfolders</value>
+  </data>
+  <data name="SummaryNotRecursive" xml:space="preserve">
+    <value>Without subfolders</value>
+  </data>
+  <data name="SummaryFilesAndFolders" xml:space="preserve">
+    <value>Files and folders</value>
+  </data>
+  <data name="SummaryFilesOnly" xml:space="preserve">
+    <value>Files only</value>
+  </data>
+  <data name="SummaryFoldersOnly" xml:space="preserve">
+    <value>Folders only</value>
+  </data>
+  <data name="SummaryIncludeHidden" xml:space="preserve">
+    <value>Hidden items</value>
+  </data>
+  <data name="SummaryConflictSkip" xml:space="preserve">
+    <value>Skip collisions</value>
+  </data>
+  <data name="SummaryConflictAppendNumber" xml:space="preserve">
+    <value>Number collisions</value>
+  </data>
+
+  <!-- List -->
+  <data name="SelectAllCheckBox.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Select all</value>
+  </data>
+  <data name="ColumnOriginal.Text" xml:space="preserve">
+    <value>Current name (NFD)</value>
+  </data>
+  <data name="ColumnConverted.Text" xml:space="preserve">
+    <value>New name (NFC)</value>
+  </data>
+  <data name="ColumnLocation.Text" xml:space="preserve">
+    <value>Location</value>
+  </data>
+  <data name="ColumnStatus.Text" xml:space="preserve">
+    <value>Status</value>
+  </data>
+  <data name="BadgePending.Text" xml:space="preserve">
+    <value>Pending</value>
+  </data>
+  <data name="BadgeConflictBorder.[using:Microsoft.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>The folder already has an item with the same NFC name</value>
+  </data>
+  <data name="BadgeConflict.Text" xml:space="preserve">
+    <value>Conflict</value>
+  </data>
+  <data name="BadgeDone.Text" xml:space="preserve">
+    <value>Done</value>
+  </data>
+  <data name="BadgeFailed.Text" xml:space="preserve">
+    <value>Failed</value>
+  </data>
+
+  <!-- Empty state and drag and drop -->
+  <data name="PickFilesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Choose files</value>
+  </data>
+  <data name="PickFilesText.Text" xml:space="preserve">
+    <value>Choose files</value>
+  </data>
+  <data name="PickFoldersButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Choose folders</value>
+  </data>
+  <data name="PickFoldersText.Text" xml:space="preserve">
+    <value>Choose folders</value>
+  </data>
+  <data name="EmptyTitleNoItems" xml:space="preserve">
+    <value>Drag files or folders here</value>
+  </data>
+  <data name="EmptyDescriptionNoItems" xml:space="preserve">
+    <value>Finds Korean names stored as decomposed jamo (NFD, e.g. &#x1107;&#x1169;&#x1100;&#x1169;&#x1109;&#x1165;.docx) and renames them to NFC (보고서.docx)</value>
+  </data>
+  <data name="EmptyTitleNothingToConvert" xml:space="preserve">
+    <value>No NFD names to convert</value>
+  </data>
+  <data name="EmptyDescriptionNothingToConvert" xml:space="preserve">
+    <value>Every added item already has an NFC name. You can drag in other files or folders</value>
+  </data>
+  <data name="DropCaption" xml:space="preserve">
+    <value>Add and scan</value>
+  </data>
+
+  <!-- Footer -->
+  <data name="ConvertButton" xml:space="preserve">
+    <value>Convert to NFC</value>
+  </data>
+  <data name="ConvertButtonWithCount" xml:space="preserve">
+    <value>Convert to NFC ({0})</value>
+  </data>
+  <data name="StatusBusy" xml:space="preserve">
+    <value>Working…</value>
+  </data>
+  <data name="StatusNoItems" xml:space="preserve">
+    <value>No items added</value>
+  </data>
+  <data name="StatusItems" xml:space="preserve">
+    <value>Items: {0}</value>
+  </data>
+  <data name="StatusPending" xml:space="preserve">
+    <value>Pending: {0}</value>
+  </data>
+  <data name="StatusConflicts" xml:space="preserve">
+    <value>Conflicts: {0}</value>
+  </data>
+  <data name="StatusFoldersScanned" xml:space="preserve">
+    <value>Subfolders scanned: {0}</value>
+  </data>
+  <data name="ResultConverted" xml:space="preserve">
+    <value>Converted: {0}</value>
+  </data>
+  <data name="ResultConvertedWithFailures" xml:space="preserve">
+    <value>Converted: {0}, failed: {1}</value>
+  </data>
+  <data name="ResultConvertFailed" xml:space="preserve">
+    <value>Conversion failed: {0}</value>
+  </data>
+  <data name="ResultScanFailed" xml:space="preserve">
+    <value>Scan failed: {0}</value>
+  </data>
+  <data name="ErrorAlreadyExists" xml:space="preserve">
+    <value>An item with the same name already exists.</value>
+  </data>
+  <data name="ErrorLeftAtTemporaryName" xml:space="preserve">
+    <value>Could not finish the rename: {1} The item is now named "{0}". Rename it back by hand.</value>
+  </data>
+
+  <!-- About dialog -->
+  <data name="AboutDialog.CloseButtonText" xml:space="preserve">
+    <value>Close</value>
+  </data>
+  <data name="AboutVersion" xml:space="preserve">
+    <value>Version {0}</value>
+  </data>
+  <data name="AboutDescription.Text" xml:space="preserve">
+    <value>Finds file and folder names stored as decomposed Korean jamo (NFD) and renames them to NFC. Use it when files copied from macOS show names like ㅂㅗㄱㅗㅅㅓ.</value>
+  </data>
+  <data name="AboutSourceButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="AboutSourceTitle.Text" xml:space="preserve">
+    <value>Source code</value>
+  </data>
+  <data name="AboutLicenseButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="AboutLicenseTitle.Text" xml:space="preserve">
+    <value>License</value>
+  </data>
+  <data name="AboutNoticesButton.[using:Microsoft.UI.Xaml.Automation]AutomationProperties.Name" xml:space="preserve">
+    <value>Third-party notices</value>
+  </data>
+  <data name="AboutNoticesTitle.Text" xml:space="preserve">
+    <value>Third-party notices</value>
+  </data>
+  <data name="AboutNoticesDescription.Text" xml:space="preserve">
+    <value>Pretendard, .NET, Windows App SDK and more</value>
+  </data>
+</root>
