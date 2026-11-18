@@ -61,6 +61,7 @@ _ReSharper*/
 !.vscode/settings.json
 !.vscode/launch.json
 !.vscode/tasks.json
+NFDFix.figcraft
 
 # ===== OS =====
 Thumbs.db
