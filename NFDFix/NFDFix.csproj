@@ -4,7 +4,10 @@
     <TargetFramework>net11.0-windows10.0.26100.0</TargetFramework>
     <TargetPlatformMinVersion>10.0.17763.0</TargetPlatformMinVersion>
     <RootNamespace>NFDFix</RootNamespace>
-    <!-- Keep in sync with Identity Version in Package.appxmanifest and assemblyIdentity in app.manifest. -->
+    <!--
+      Version for local builds. Release builds take it from the git tag instead (v1.2.0 -> 1.2.0,
+      see .github/workflows/release.yml); the in-app updater compares it with the latest release.
+    -->
     <Version>1.0.0</Version>
     <!-- Strings/<language>/Resources.resw; this one is used when Windows uses a language the app has no strings for. -->
     <DefaultLanguage>en-US</DefaultLanguage>
@@ -122,6 +125,11 @@
     <!-- Native AOT always trims, so this is on in every configuration. -->
     <PublishTrimmed>True</PublishTrimmed>
     <WindowsPackageType>None</WindowsPackageType>
+    <!--
+      Ship the Windows App SDK runtime in the app folder, so the installed app runs on PCs
+      that don't have the Windows App Runtime installed.
+    -->
+    <WindowsAppSDKSelfContained>true</WindowsAppSDKSelfContained>
     <PublishAot>True</PublishAot>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">

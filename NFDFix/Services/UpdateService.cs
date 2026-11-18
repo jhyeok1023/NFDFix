@@ -35,6 +35,7 @@ namespace NFDFix.Services
     /// <remarks>
     /// Releases are tagged <c>v&lt;version&gt;</c> and carry one Inno Setup installer per architecture,
     /// named <c>NFDFix-&lt;version&gt;-win-&lt;arch&gt;-setup.exe</c> (see <see cref="InstallerSuffix"/>).
+    /// <c>installer\NFDFix.iss</c> builds them and <c>.github\workflows\release.yml</c> publishes them.
     /// </remarks>
     public static class UpdateService
     {
@@ -213,9 +214,10 @@ namespace NFDFix.Services
             try
             {
                 // /SILENT shows only the progress window: the user already chose to update.
+                // /RELAUNCH makes installer\NFDFix.iss start the app again when it finishes.
                 System.Diagnostics.Process.Start(new System.Diagnostics.ProcessStartInfo(path)
                 {
-                    Arguments = "/SILENT /SP- /NORESTART",
+                    Arguments = "/SILENT /SP- /NORESTART /RELAUNCH",
                     UseShellExecute = true,
                 });
             }
