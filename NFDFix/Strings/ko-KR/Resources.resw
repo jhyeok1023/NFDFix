@@ -313,4 +313,72 @@
   <data name="AboutNoticesDescription.Text" xml:space="preserve">
     <value>Pretendard, .NET, Windows App SDK 등</value>
   </data>
+
+  <!-- Updates -->
+  <data name="AboutButtonName" xml:space="preserve">
+    <value>정보</value>
+  </data>
+  <data name="AboutButtonUpdateAvailable" xml:space="preserve">
+    <value>정보 · 새 버전 있음</value>
+  </data>
+  <data name="UpdateUpToDateTitle" xml:space="preserve">
+    <value>최신 버전입니다</value>
+  </data>
+  <data name="UpdateNeverChecked" xml:space="preserve">
+    <value>아직 확인하지 않았습니다</value>
+  </data>
+  <data name="UpdateLastCheckedToday" xml:space="preserve">
+    <value>마지막 확인: 오늘 {0}</value>
+  </data>
+  <data name="UpdateLastChecked" xml:space="preserve">
+    <value>마지막 확인: {0}</value>
+  </data>
+  <data name="UpdateCheckingTitle" xml:space="preserve">
+    <value>업데이트 확인 중…</value>
+  </data>
+  <data name="UpdateCheckingDescription" xml:space="preserve">
+    <value>GitHub에서 최신 릴리스를 확인하고 있습니다</value>
+  </data>
+  <data name="UpdateAvailableTitle" xml:space="preserve">
+    <value>{0} 버전을 사용할 수 있습니다</value>
+  </data>
+  <data name="UpdateReleaseNotesLink.Content" xml:space="preserve">
+    <value>릴리스 노트 보기</value>
+  </data>
+  <data name="UpdateDownloadingTitle" xml:space="preserve">
+    <value>업데이트 다운로드 중… {0} / {1}</value>
+  </data>
+  <data name="UpdateDownloadingTitleNoSize" xml:space="preserve">
+    <value>업데이트 다운로드 중…</value>
+  </data>
+  <data name="UpdateCheckFailedTitle" xml:space="preserve">
+    <value>업데이트를 확인하지 못했습니다</value>
+  </data>
+  <data name="UpdateDownloadFailedTitle" xml:space="preserve">
+    <value>업데이트를 받지 못했습니다</value>
+  </data>
+  <data name="UpdateErrorNetwork" xml:space="preserve">
+    <value>인터넷 연결을 확인한 뒤 다시 시도해 주세요</value>
+  </data>
+  <data name="UpdateErrorCorrupt" xml:space="preserve">
+    <value>받은 파일이 손상되었습니다</value>
+  </data>
+  <data name="UpdateErrorLaunch" xml:space="preserve">
+    <value>설치 프로그램을 실행하지 못했습니다</value>
+  </data>
+  <data name="UpdateCheckButton" xml:space="preserve">
+    <value>업데이트 확인</value>
+  </data>
+  <data name="UpdateInstallButton" xml:space="preserve">
+    <value>업데이트</value>
+  </data>
+  <data name="UpdateOpenPageButton" xml:space="preserve">
+    <value>다운로드 페이지 열기</value>
+  </data>
+  <data name="UpdateCancelButton" xml:space="preserve">
+    <value>취소</value>
+  </data>
+  <data name="UpdateRetryButton" xml:space="preserve">
+    <value>다시 시도</value>
+  </data>
 </root>

@@ -9,12 +9,17 @@ using Windows.System;
 
 namespace NFDFix
 {
+    /// <summary>The text of a language menu item, shown by <c>LanguageMenuItemTemplate</c>.</summary>
+    public sealed record LanguageMenuEntry(string Name, string Hint);
+
     /// <summary>
     /// The main content page displayed inside the application window.
     /// </summary>
     public sealed partial class MainPage : Page
     {
         public MainPageViewModel ViewModel { get; } = new();
+
+        public UpdateViewModel Updates => UpdateViewModel.Current;
 
         public MainPage()
         {
@@ -32,10 +37,21 @@ namespace NFDFix
             Loaded += OnFirstLoaded;
         }
 
-        /// <summary>Adds paths passed on the command line. Runs only once, even if the page is loaded again.</summary>
+        /// <summary>
+        /// Adds paths passed on the command line and checks for updates in the background.
+        /// Runs only once, even if the page is loaded again.
+        /// </summary>
         private async void OnFirstLoaded(object sender, RoutedEventArgs e)
         {
             Loaded -= OnFirstLoaded;
+            Updates.PropertyChanged += (_, args) =>
+            {
+                if (args.PropertyName == nameof(UpdateViewModel.HasUpdate))
+                    UpdateAboutButtonName();
+            };
+            _ = Task.Run(UpdateService.DeleteOldDownloads);
+            _ = Updates.CheckAsync(quiet: true);
+
             try
             {
                 var args = Environment.GetCommandLineArgs().Skip(1).Where(a => File.Exists(a) || Directory.Exists(a)).ToList();
@@ -64,40 +80,20 @@ namespace NFDFix
         private void BuildLanguageMenu()
         {
             LanguageItemsPanel.Children.Add(CreateLanguageItem(string.Empty, Localizer.GetString("LanguageSystem"), Localizer.GetString("LanguageSystemHint")));
-            LanguageItemsPanel.Children.Add(new Microsoft.UI.Xaml.Shapes.Rectangle
-            {
-                Margin = new Thickness(0, 4, 0, 4),
-                Style = (Style)Resources["OptionDividerStyle"],
-            });
+            // Styled by the implicit styles on LanguageItemsPanel.
+            LanguageItemsPanel.Children.Add(new Microsoft.UI.Xaml.Shapes.Rectangle { Margin = new Thickness(0, 4, 0, 4) });
             foreach (var language in Localizer.SupportedLanguages)
                 LanguageItemsPanel.Children.Add(CreateLanguageItem(language.Tag, language.NativeName, Localizer.GetString(language.HintKey)));
         }
 
+        /// <summary>Creates a language menu item; its look comes from the implicit style and template in XAML.</summary>
         private RadioButton CreateLanguageItem(string tag, string name, string hint)
         {
-            var label = new TextBlock { Text = name, VerticalAlignment = VerticalAlignment.Center, TextTrimming = TextTrimming.CharacterEllipsis };
-            var hintText = new TextBlock
-            {
-                Text = hint,
-                Margin = new Thickness(16, 0, 0, 0),
-                VerticalAlignment = VerticalAlignment.Center,
-                Style = (Style)Application.Current.Resources["CaptionTextBlockStyle"],
-                Foreground = (Microsoft.UI.Xaml.Media.Brush)Application.Current.Resources["TextFillColorTertiaryBrush"],
-            };
-            Grid.SetColumn(hintText, 1);
-
-            var content = new Grid();
-            content.ColumnDefinitions.Add(new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) });
-            content.ColumnDefinitions.Add(new ColumnDefinition { Width = GridLength.Auto });
-            content.Children.Add(label);
-            content.Children.Add(hintText);
-
             var item = new RadioButton
             {
-                Style = (Style)Resources["LanguageMenuItemStyle"],
                 GroupName = "Language",
                 Tag = tag,
-                Content = content,
+                Content = new LanguageMenuEntry(name, hint),
             };
             Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(item, name);
             item.Click += OnLanguageItemClick;
@@ -115,6 +111,14 @@ namespace NFDFix
             if (sender is RadioButton { Tag: string tag })
                 Localizer.SetPreferredLanguage(tag);
             LanguageFlyout.Hide();
+        }
+
+        /// <summary>Says in the tooltip and to screen readers that a newer version is available, since the badge only shows it visually.</summary>
+        private void UpdateAboutButtonName()
+        {
+            var name = Localizer.GetString(Updates.HasUpdate ? "AboutButtonUpdateAvailable" : "AboutButtonName");
+            ToolTipService.SetToolTip(AboutButton, name);
+            Microsoft.UI.Xaml.Automation.AutomationProperties.SetName(AboutButton, name);
         }
 
         private async void OnAboutClick(object sender, RoutedEventArgs e)

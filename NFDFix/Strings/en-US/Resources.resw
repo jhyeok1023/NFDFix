@@ -314,4 +314,72 @@
   <data name="AboutNoticesDescription.Text" xml:space="preserve">
     <value>Pretendard, .NET, Windows App SDK and more</value>
   </data>
+
+  <!-- Updates -->
+  <data name="AboutButtonName" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="AboutButtonUpdateAvailable" xml:space="preserve">
+    <value>About · Update available</value>
+  </data>
+  <data name="UpdateUpToDateTitle" xml:space="preserve">
+    <value>You're up to date</value>
+  </data>
+  <data name="UpdateNeverChecked" xml:space="preserve">
+    <value>Not checked yet</value>
+  </data>
+  <data name="UpdateLastCheckedToday" xml:space="preserve">
+    <value>Last checked: today at {0}</value>
+  </data>
+  <data name="UpdateLastChecked" xml:space="preserve">
+    <value>Last checked: {0}</value>
+  </data>
+  <data name="UpdateCheckingTitle" xml:space="preserve">
+    <value>Checking for updates…</value>
+  </data>
+  <data name="UpdateCheckingDescription" xml:space="preserve">
+    <value>Looking for the latest release on GitHub</value>
+  </data>
+  <data name="UpdateAvailableTitle" xml:space="preserve">
+    <value>Version {0} is available</value>
+  </data>
+  <data name="UpdateReleaseNotesLink.Content" xml:space="preserve">
+    <value>View release notes</value>
+  </data>
+  <data name="UpdateDownloadingTitle" xml:space="preserve">
+    <value>Downloading update… {0} of {1}</value>
+  </data>
+  <data name="UpdateDownloadingTitleNoSize" xml:space="preserve">
+    <value>Downloading update…</value>
+  </data>
+  <data name="UpdateCheckFailedTitle" xml:space="preserve">
+    <value>Couldn't check for updates</value>
+  </data>
+  <data name="UpdateDownloadFailedTitle" xml:space="preserve">
+    <value>Couldn't download the update</value>
+  </data>
+  <data name="UpdateErrorNetwork" xml:space="preserve">
+    <value>Check your internet connection and try again</value>
+  </data>
+  <data name="UpdateErrorCorrupt" xml:space="preserve">
+    <value>The downloaded file is damaged</value>
+  </data>
+  <data name="UpdateErrorLaunch" xml:space="preserve">
+    <value>Couldn't start the installer</value>
+  </data>
+  <data name="UpdateCheckButton" xml:space="preserve">
+    <value>Check for updates</value>
+  </data>
+  <data name="UpdateInstallButton" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="UpdateOpenPageButton" xml:space="preserve">
+    <value>Open download page</value>
+  </data>
+  <data name="UpdateCancelButton" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="UpdateRetryButton" xml:space="preserve">
+    <value>Try again</value>
+  </data>
 </root>

@@ -60,6 +60,32 @@
             <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled" />
         </Style>
 
+        <!--
+            Content of a language menu item: the language's own name and a secondary name.
+            The items are created in code, but their look stays in XAML (this template and the implicit
+            styles on LanguageItemsPanel): under Native AOT a style looked up from code comes back as a
+            plain DependencyObject and cannot be cast to Style.
+        -->
+        <DataTemplate x:Key="LanguageMenuItemTemplate" x:DataType="local:LanguageMenuEntry">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+                <TextBlock
+                    Text="{x:Bind Name}"
+                    VerticalAlignment="Center"
+                    TextTrimming="CharacterEllipsis" />
+                <TextBlock
+                    Grid.Column="1"
+                    Margin="16,0,0,0"
+                    VerticalAlignment="Center"
+                    Text="{x:Bind Hint}"
+                    Style="{StaticResource CaptionTextBlockStyle}"
+                    Foreground="{ThemeResource TextFillColorTertiaryBrush}" />
+            </Grid>
+        </DataTemplate>
+
         <!--  A menu item with a check mark, like RadioMenuFlyoutItem, laid out to match the language menu design.  -->
         <Style x:Key="LanguageMenuItemStyle" TargetType="RadioButton">
             <Setter Property="Background" Value="{ThemeResource SubtleFillColorTransparentBrush}" />
@@ -73,6 +99,7 @@
             <Setter Property="CornerRadius" Value="{StaticResource ControlCornerRadius}" />
             <Setter Property="UseSystemFocusVisuals" Value="True" />
             <Setter Property="FocusVisualMargin" Value="0" />
+            <Setter Property="ContentTemplate" Value="{StaticResource LanguageMenuItemTemplate}" />
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="RadioButton">
@@ -226,7 +253,12 @@
                                     Style="{StaticResource CaptionTextBlockStyle}"
                                     FontWeight="SemiBold"
                                     Foreground="{ThemeResource TextFillColorSecondaryBrush}" />
-                                <StackPanel x:Name="LanguageItemsPanel" />
+                                <StackPanel x:Name="LanguageItemsPanel">
+                                    <StackPanel.Resources>
+                                        <Style TargetType="RadioButton" BasedOn="{StaticResource LanguageMenuItemStyle}" />
+                                        <Style TargetType="Rectangle" BasedOn="{StaticResource OptionDividerStyle}" />
+                                    </StackPanel.Resources>
+                                </StackPanel>
                                 <Rectangle Margin="0,4" Style="{StaticResource OptionDividerStyle}" />
                                 <StackPanel Margin="12,4,12,6" Orientation="Horizontal" Spacing="8">
                                     <FontIcon
@@ -243,13 +275,24 @@
                         </Flyout>
                     </Button.Flyout>
                 </Button>
-                <Button
-                    Style="{StaticResource SubtleButtonStyle}"
-                    Width="24" Height="24" Padding="0"
-                    Click="OnAboutClick"
-                    x:Uid="AboutButton">
-                    <FontIcon Glyph="&#xE946;" FontSize="{StaticResource ToolbarIconSize}" />
-                </Button>
+                <Grid>
+                    <Button
+                        x:Name="AboutButton"
+                        Style="{StaticResource SubtleButtonStyle}"
+                        Width="24" Height="24" Padding="0"
+                        Click="OnAboutClick"
+                        x:Uid="AboutButton">
+                        <FontIcon Glyph="&#xE946;" FontSize="{StaticResource ToolbarIconSize}" />
+                    </Button>
+                    <!--  Shown when the startup check finds a newer version.  -->
+                    <InfoBadge
+                        Width="8" Height="8"
+                        Margin="0,1,1,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Top"
+                        IsHitTestVisible="False"
+                        Visibility="{x:Bind Updates.HasUpdate, Mode=OneWay}" />
+                </Grid>
             </StackPanel>
         </Grid>
 
