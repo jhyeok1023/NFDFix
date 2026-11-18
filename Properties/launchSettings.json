@@ -1,0 +1,10 @@
+{
+  "profiles": {
+    "NFDFix (Package)": {
+      "commandName": "MsixPackage"
+    },
+    "NFDFix (Unpackaged)": {
+      "commandName": "Project"
+    }
+  }
+}
